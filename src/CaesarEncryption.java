@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 class CaesarEncryption {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         DataContainer dataCont = UserDialogue.getUserData();
         Map<Character, Character> translationTable = new HashMap<>();
         if (dataCont.encryptLower) {
@@ -18,7 +18,7 @@ class CaesarEncryption {
             dataCont.numThreads = dataCont.message.length;
             charsLeft = 0;
         }
-        Thread tPool[] = new Thread[dataCont.numThreads];
+        Thread[] tPool = new Thread[dataCont.numThreads];
         for (int i = 0; i < dataCont.numThreads; i++) {
             if (i + 1 != dataCont.numThreads) {
                 tPool[i] = new Thread(new EncryptionWorkerTable(dataCont.message, translationTable, i * charsPerThread, charsPerThread));

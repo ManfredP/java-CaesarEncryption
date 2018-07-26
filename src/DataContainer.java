@@ -1,7 +1,7 @@
 class DataContainer {
     int numThreads;
     int encOffset;
-    char message[];
+    char[] message;
     boolean encryptUpper;
     boolean encryptLower;
 
